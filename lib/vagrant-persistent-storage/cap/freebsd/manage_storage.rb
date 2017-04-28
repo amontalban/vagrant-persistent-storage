@@ -37,7 +37,7 @@ else
     # There is a prior zpool in device that matches our setting
     zpool list | grep -iq #{mnt_name}
 
-    if [ $? -gt 1 ]; then
+    if [ $? -gt 0 ]; then
       # The zpool is not imported
       zpool import -f #{mnt_name} || exit 1
     fi
